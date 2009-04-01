@@ -1,0 +1,49 @@
+<project name="Transcendancy" default="package" basedir=".">
+    <description>Build for Transcendancy</description>
+
+  <property name="src" location="."/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="project-major-version" value="0"/>
+  <property name="project-minor-version" value="0"/>
+  <property name="project-build-increment" value="1"/>
+  <property name="project-version" value="${project-major-version}.${project-minor-version}.${project-build-increment}"/>
+  <property name="project-name" value="Transcendancy"/>
+  <property name="main-class" value="org.greyfire.transcendancy.Transcendancy"/>
+
+  <target name="init">
+    <tstamp>
+      <format property="BUILDTIME" pattern="yyyyMMddhhmmss" locale="en,UK" />
+    </tstamp>
+    <mkdir dir="${build}"/>
+  </target>
+
+  <target name="compile" depends="init" description="compile the source " >
+    <javac srcdir="${src}" destdir="${build}"/>
+  </target>
+
+  <target name="package" depends="compile" description="generate a local build package" >
+    <mkdir dir="${dist}"/>
+
+    <jar jarfile="${dist}/${project-name}-${project-major-version}.${project-minor-version}.${BUILDTIME}.jar" basedir="${build}">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="dist" depends="compile" description="generate the distribution" >
+    <mkdir dir="${dist}"/>
+
+    <jar jarfile="${dist}/${project-name}-${project-version}.jar" basedir="${build}">
+      <manifest>
+        <attribute name="Main-Class" value="${main-class}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  <target name="clean" description="clean up" >
+    <delete dir="${build}"/>
+    <delete dir="${dist}"/>
+  </target>
+</project>
