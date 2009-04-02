@@ -1,7 +1,8 @@
 package org.greyfire.transcendancy.cosmos;
 
+import org.greyfire.transcendancy.bio.*;
 
-public class Vessel extends SystemObject {
+public class Vessel extends SystemObject implements Comparable<Vessel> {
 	
 	public enum Classification {
 		SARATOGA   ("Saratoga");
@@ -26,10 +27,23 @@ public class Vessel extends SystemObject {
 	protected Size size;
 	protected Classification classification;
 
-	public Vessel(String name, Coord position, Coord orbital_parameters, String owner, Size size, Classification classification) {
-		super(name, position, orbital_parameters, owner);
+	public Vessel(String name, StellarLocation site, Coord position, Coord orbital_parameters, Species owner, Size size, Classification classification) {
+		super(name, site, position, orbital_parameters, owner);
 		this.size = size;
 		this.classification = classification;
+	}
+	public void own(Species new_owner) {
+		this.disown();
+		if(new_owner!=null) {
+			this.owner = new_owner;
+			this.owner.registerVessel(this);
+		}
+	}
+	public void disown() {
+		if(this.owner!=null) {
+			this.owner = null;
+			this.owner.deregisterVessel(this);
+		}
 	}
 
 	public void setClassification(Classification classification) { this.classification = classification; }
@@ -43,7 +57,7 @@ public class Vessel extends SystemObject {
 		if(owner==null) {
 			return String.format("%s (%s %s-class vessel)", shorttitle, this.size, this.classification);
 		} else {
-			return String.format("%s (%s %s-class vessel, %s)", shorttitle, this.size, this.classification, this.owner);
+			return String.format("%s (%s %s-class vessel, %s)", shorttitle, this.size, this.classification, this.owner.toString());
 		}
 	}
 
@@ -52,4 +66,7 @@ public class Vessel extends SystemObject {
 		return String.format("\"%s\"", this.name);
 	}
 
+	public int compareTo(Vessel v) {
+		return this.name.compareTo(v.getName());
+	}
 }

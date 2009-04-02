@@ -1,16 +1,20 @@
 package org.greyfire.transcendancy.cosmos;
 
+import org.greyfire.transcendancy.bio.*;
+
 public abstract class StellarObject {
 	protected String name;
 	protected Coord  position;
-	protected String owner;
+	protected Species owner;
 	
-	public StellarObject(String name, Coord position, String owner) {
+	public StellarObject(String name, Coord position, Species owner) {
 		this.name     = name;
 		this.position = position;
-		this.owner    = owner;
+		this.own(owner);
 	}
 
+	public abstract void own(Species new_owner);
+	public abstract void disown();
 	public abstract String getShortTitle();
 	public abstract String getLongTitle();
 	
@@ -18,6 +22,4 @@ public abstract class StellarObject {
 	public Coord getPosition() { return position; }
 	public void setName(String name) { this.name = name; }
 	public String getName() { return name; }
-	public void setOwner(String owner) { this.owner = owner; }
-	public String getOwner() { return owner; }
 }

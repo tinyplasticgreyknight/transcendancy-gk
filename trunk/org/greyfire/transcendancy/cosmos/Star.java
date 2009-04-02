@@ -1,6 +1,8 @@
 package org.greyfire.transcendancy.cosmos;
 
-public class Star extends StellarObject {
+import org.greyfire.transcendancy.bio.*;
+
+public class Star extends StellarLocation {
 	
 	public enum Classification {
 		YELLOW_DWARF("yellow dwarf"),
@@ -20,7 +22,7 @@ public class Star extends StellarObject {
 	
 	protected Classification classification;
 
-	public Star(String name, Coord position, String owner, Classification classification) {
+	public Star(String name, Coord position, Species owner, Classification classification) {
 		super(name, position, owner);
 		this.setClassification(classification);
 	}
@@ -34,7 +36,7 @@ public class Star extends StellarObject {
 		if(owner==null) {
 			return String.format("%s (%s system)", shorttitle, this.classification);
 		} else {
-			return String.format("%s (%s system, %s)", shorttitle, this.classification, this.owner);
+			return String.format("%s (%s system, %s)", shorttitle, this.classification, this.owner.toString());
 		}
 	}
 

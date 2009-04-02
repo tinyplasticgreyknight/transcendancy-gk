@@ -2,20 +2,21 @@ package org.greyfire.transcendancy.ui;
 
 import java.awt.GridLayout;
 
-import javax.swing.JLabel;
+import org.greyfire.transcendancy.cosmos.Galaxy;
 
 public class GalaxyPanel extends SecondaryPanel {
 
 	private static final long serialVersionUID = 1L;
-	private String content;
+	private Galaxy content;
+	private ArtCanvas canvas;
 
-	public GalaxyPanel(String content) {
+	public GalaxyPanel(Galaxy content) {
 		super();
 		this.content = content;
 		this.onOpen();
 	}
 
-	public GalaxyPanel(String content, boolean doublebuffer) {
+	public GalaxyPanel(Galaxy content, boolean doublebuffer) {
 		super(doublebuffer);
 		this.content = content;
 		this.onOpen();
@@ -28,10 +29,8 @@ public class GalaxyPanel extends SecondaryPanel {
 
 	@Override
 	public void onOpen() {
-        JLabel filler = new JLabel(this.content);
-        filler.setHorizontalAlignment(JLabel.CENTER);
+		this.canvas = new ArtCanvas(320, 240);
         this.setLayout(new GridLayout(1, 1));
-        this.add(filler);
+        this.add(this.canvas);
 	}
-
 }

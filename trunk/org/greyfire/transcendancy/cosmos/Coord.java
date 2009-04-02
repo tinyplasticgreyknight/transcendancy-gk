@@ -50,4 +50,10 @@ public class Coord {
 	public double r()     { return this.r;     }
 	public double theta() { return this.theta; }
 	public double phi()   { return this.phi;   }
+	public long distanceTo(Coord p2) {
+		long dx = this.x - p2.x();
+		long dy = this.y - p2.y();
+		long dz = this.z - p2.z();
+		return Math.round(Math.sqrt(dx*dx+dy*dy+dz*dz));
+	}
 }
