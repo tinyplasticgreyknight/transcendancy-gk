@@ -15,27 +15,28 @@ import org.greyfire.transcendancy.ui.UI;
 public class Transcendancy {
 	
 	public static UI ui = new FrameUI();
+	public static DataResources data = new DataResources();
 	
 	public static void run() {
 		/* testing */
 		Galaxy milkyway  = ui.galaxy();
 		Species hanshaks = new Species("Hanshak");
 		Species shevar   = new Species("Shevar", "Shevar");
-		Star alpheratz = new Star("Alpheratz", new Coord( 10,  20,  30), hanshaks, Star.Classification.YELLOW_GIANT);
-		Star tonklinus = new Star("Tonklinus", new Coord( 30,  80, -25), shevar,   Star.Classification.NEUTRON_STAR);
-		Star vega      = new Star("Vega",      new Coord(-50, -50, -50), null,     Star.Classification.RED_DWARF);
-		new Planet(null,       alpheratz, 1, new Coord(4.0, 0.0, 0.0),  new Coord(1.0, 0.0, 0.5), null,     Planet.Size.TINY, Planet.Classification.CHAPEL);
-		new Planet("Hanhome",  alpheratz, 2, new Coord(10.0, 0.0, 0.0), new Coord(1.0, 0.0, 0.5), hanshaks, Planet.Size.MEDIUM, Planet.Classification.CATHEDRAL);
-		new Planet("Ravehs",   tonklinus, 1, new Coord(10.0, 0.0, 0.0), new Coord(1.0, 0.0, 0.5), shevar,   Planet.Size.LARGE, Planet.Classification.HUSK);
-		new Vessel("Saratoga", alpheratz, new Coord(10, 20, 30), new Coord(0.0, 0.0, 0.0), hanshaks, Vessel.Size.LARGE, Vessel.Classification.SARATOGA);
+		Star star0 = new Star(data.starnames.get(0), new Coord( 10,  20,  30), hanshaks, Star.Classification.YELLOW_GIANT);
+		Star star1 = new Star(data.starnames.get(1), new Coord( 30,  80, -25), shevar,   Star.Classification.NEUTRON_STAR);
+		Star star2 = new Star(data.starnames.get(2), new Coord(-50, -50, -50), null,     Star.Classification.RED_DWARF);
+		new Planet(null,       star0, 1, new Coord(4.0, 0.0, 0.0),  new Coord(1.0, 0.0, 0.5), null,     Planet.Size.TINY, Planet.Classification.CHAPEL);
+		new Planet("Hanhome",  star0, 2, new Coord(10.0, 0.0, 0.0), new Coord(1.0, 0.0, 0.5), hanshaks, Planet.Size.MEDIUM, Planet.Classification.CATHEDRAL);
+		new Planet("Ravehs",   star1, 1, new Coord(10.0, 0.0, 0.0), new Coord(1.0, 0.0, 0.5), shevar,   Planet.Size.LARGE, Planet.Classification.HUSK);
+		new Vessel("Saratoga", star0, new Coord(10, 20, 30), new Coord(0.0, 0.0, 0.0), hanshaks, Vessel.Size.LARGE, Vessel.Classification.SARATOGA);
 		
-		milkyway.addAnchor(alpheratz);
-		milkyway.addAnchor(tonklinus);
-		milkyway.addAnchor(vega);
+		milkyway.addAnchor(star0);
+		milkyway.addAnchor(star1);
+		milkyway.addAnchor(star2);
 
-		milkyway.addLane(new Starlane(null, null, alpheratz, tonklinus));
-		milkyway.addLane(new Starlane(null, null, vega,      tonklinus));
-		milkyway.addLane(new Starlane(null, null, alpheratz, vega));
+		milkyway.addLane(new Starlane(null, null, star0, star1));
+		milkyway.addLane(new Starlane(null, null, star2, star1));
+		milkyway.addLane(new Starlane(null, null, star0, star2));
 		
 		ui.initialise();
 		ui.activate();

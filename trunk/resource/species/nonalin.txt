@@ -1,0 +1,4 @@
+name: Nonalin
+plural: Nonalin
+possessive: Nonalin
+homeworld: Adversity
