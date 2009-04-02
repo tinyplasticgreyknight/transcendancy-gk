@@ -6,7 +6,6 @@ public interface UI {
 	public void initialise();
 	public void activate();
 	public void shutdown();
-	public void setGalaxy(Galaxy g);
 	public Galaxy galaxy();
 	public Boolean yn(String question);
 	public Boolean ynq(String question);
@@ -16,4 +15,5 @@ public interface UI {
 	public void notify(String message);
 	public void warn(String message);
 	public boolean running();
+	public void redrawGalaxy();
 }

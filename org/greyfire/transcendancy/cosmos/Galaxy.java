@@ -14,7 +14,9 @@ public class Galaxy {
 	
 	public Galaxy() {
 	}
-	
+
+	public ArrayList<StellarLocation> anchors() { return anchors; }
+	public ArrayList<Starlane> lanes() { return lanes; }
 	public int addAnchor(StellarLocation o) {
 		int i;
 		for(i=0; i<anchors.size(); i++) {

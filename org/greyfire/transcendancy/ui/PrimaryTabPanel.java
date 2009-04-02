@@ -16,6 +16,7 @@ public class PrimaryTabPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private ArrayList<SecondaryPanel> panels = new ArrayList<SecondaryPanel>();
+	private GalaxyPanel gpanel = null;
 	private JTabbedPane tabs;
 
 	public static Color TC_GALAXY   = new Color(255, 255, 255);
@@ -34,6 +35,7 @@ public class PrimaryTabPanel extends JPanel {
     
 	public int addSecondaryPanel(SecondaryPanel panel, String title, String tooltip, Color clr) {
 		int i = this.panels.size();
+		if((panel instanceof GalaxyPanel) && (this.gpanel!=null)) throw new IllegalStateException("cannot have more than one galaxy tab");
 		this.tabs.addTab(title, null, panel, tooltip);
 		this.tabs.setBackgroundAt(i, clr);
 		this.panels.add(panel);
@@ -42,6 +44,7 @@ public class PrimaryTabPanel extends JPanel {
     
 	public int addSecondaryPanel(SecondaryPanel panel, String tooltip, Color clr) {
 		int i = this.panels.size();
+		if((panel instanceof GalaxyPanel) && (this.gpanel!=null)) throw new IllegalStateException("cannot have more than one galaxy tab");
 		String title = tooltip;
 		if(title==null) title = "New Tab";
 		this.tabs.addTab(title, null, panel, title);
@@ -53,6 +56,8 @@ public class PrimaryTabPanel extends JPanel {
 	public boolean removeSecondaryPanel(int handle) {
 		if(handle<=0) return false;
 		if(handle>=this.panels.size()) return false;
+		SecondaryPanel candidate = this.panels.get(handle);
+		if(candidate instanceof GalaxyPanel) return false;
 		this.panels.remove(handle);
 		return true;
 	}
@@ -63,8 +68,10 @@ public class PrimaryTabPanel extends JPanel {
     public Color getColour(int index) { return this.tabs.getBackgroundAt(index); }
 
 	public void addGalaxyPanel(Galaxy content, String title) {
+		if(this.gpanel!=null) throw new IllegalStateException("cannot have more than one galaxy tab");
 		GalaxyPanel panel = new GalaxyPanel(content, true);
 		this.addSecondaryPanel(panel, title, title, PrimaryTabPanel.TC_GALAXY);
+		this.gpanel = panel;
 	}
 
 	public void addMinistryPanel(String content, String title) {
@@ -87,4 +94,5 @@ public class PrimaryTabPanel extends JPanel {
 		this.addSecondaryPanel(panel, planet.getShortTitle(), planet.getLongTitle(), PrimaryTabPanel.TC_PLANET);
 	}
     
+	public GalaxyPanel getGalaxyPanel() { return this.gpanel; }
 }
