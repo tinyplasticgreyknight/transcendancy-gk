@@ -1,10 +1,13 @@
 package org.greyfire.transcendancy.cosmos;
 
+import org.greyfire.transcendancy.bio.*;
+
 public abstract class SystemObject {
 	protected String name;
 	protected Coord  position;
 	protected Coord  orbital_parameters;
-	protected String owner;
+	protected Species owner;
+	protected StellarLocation site = null;
 	
 	/**
 	 * @param name
@@ -12,18 +15,28 @@ public abstract class SystemObject {
 	 * @param orbital_parameters Fields should be: (r)=instantaneous linear velocity in cubes/tick, (theta)=azimuth of highest point on orbit, (phi)=altitude of said point.  Set (r) to zero if you are not orbiting.
 	 * @param owner
 	 */
-	public SystemObject(String name, Coord position, Coord orbital_parameters, String owner) {
+	public SystemObject(String name, StellarLocation site, Coord position, Coord orbital_parameters, Species owner) {
 		this.name     = name;
 		this.position = position;
-		this.owner    = owner;
 		double r = orbital_parameters.r();
 		double q = orbital_parameters.theta();
 		double f = orbital_parameters.phi();
 		while(q<0) q += Math.PI;
 		this.orbital_parameters = new Coord(r, q, f);
+		this.own(owner);
+		this.move(site);
 		this.initialise();
 	}
 
+	public abstract void own(Species new_owner);
+	public abstract void disown();
+	public void move(StellarLocation new_site) {
+		if(this.site!=null) {
+			this.site.removeObject(this);
+		}
+		new_site.addObject(this);
+		this.site = new_site;
+	}
 	public abstract String getShortTitle();
 	public abstract String getLongTitle();
 	
@@ -31,8 +44,10 @@ public abstract class SystemObject {
 	public Coord getPosition() { return position; }
 	public void setName(String name) { this.name = name; }
 	public String getName() { return name; }
-	public void setOwner(String owner) { this.owner = owner; }
-	public String getOwner() { return owner; }
+	public void setSite(StellarLocation site) {
+		this.move(site);
+	}
+	public StellarLocation getSite() { return site; }
 	
 	public void initialise() {
 		if(orbital_parameters.r()==0) return;
@@ -46,4 +61,5 @@ public abstract class SystemObject {
 		double q = position.theta() + (orbital_parameters.r()/r);
 		position.set(r, q, Math.cos(q - orbital_parameters.theta()) * orbital_parameters.phi());
 	}
+
 }

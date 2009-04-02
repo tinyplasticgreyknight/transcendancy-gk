@@ -6,7 +6,11 @@ import java.awt.HeadlessException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-import org.greyfire.transcendancy.cosmos.*;
+import org.greyfire.transcendancy.cosmos.Galaxy;
+import org.greyfire.transcendancy.cosmos.Planet;
+import org.greyfire.transcendancy.cosmos.StellarLocation;
+import org.greyfire.transcendancy.cosmos.SystemObject;
+import org.greyfire.transcendancy.cosmos.Vessel;
 
 public class FrameUI extends JFrame implements UI {
 
@@ -17,6 +21,8 @@ public class FrameUI extends JFrame implements UI {
 	private boolean running = false;
 
 	private PrimaryTabPanel main_panel;
+
+	private Galaxy galaxy = new Galaxy();
 	
 	public FrameUI() throws HeadlessException {
 		// TODO Auto-generated constructor stub
@@ -29,28 +35,40 @@ public class FrameUI extends JFrame implements UI {
 	}
 
 	public void activate() {
+		this.setSize(monitor_width/2, monitor_height/2);
 		this.setVisible(true);
 		this.running = true;
-		Star alpheratz = new Star("Alpheratz", new Coord(1, 2, 3), "Hanshaks", Star.Classification.YELLOW_GIANT);
-		Planet alpheratz_2 = new Planet("Alpheratz II", new Coord(10.0, 0.0, 0.0), new Coord(1.0, 0.0, 0.5), "Shevar", Planet.Size.SMALL, Planet.Classification.CATHEDRAL);
-		Vessel saratoga    = new Vessel("Saratoga", new Coord(10, 20, 30), new Coord(0.0, 0.0, 0.0), "Hanshaks", Vessel.Size.LARGE, Vessel.Classification.SARATOGA);
-		this.main_panel.addGalaxyPanel("foo", "Main");
-		this.main_panel.addMinistryPanel("bar", "Planets");
-		this.main_panel.addMinistryPanel("baz", "Fleet");
-		this.main_panel.addMinistryPanel("qux", "Research");
-		this.main_panel.addMinistryPanel("qax", "Diplomacy");
-		this.main_panel.addMinistryPanel("zzz", "Special");
-		this.main_panel.addSystemPanel(alpheratz);
-		this.main_panel.addPlanetPanel(alpheratz_2);
-		this.main_panel.addVesselPanel(saratoga);
-		
+		this.createBufferStrategy(2);
+		this.repaint();
 	}
 
 	public void initialise() {
 		this.main_panel = new PrimaryTabPanel();
 		this.add(this.main_panel);
+		
+		this.main_panel.addGalaxyPanel(this.galaxy, "Galaxy");
+		this.main_panel.addMinistryPanel("bar", "Planets");
+		this.main_panel.addMinistryPanel("baz", "Fleet");
+		this.main_panel.addMinistryPanel("qux", "Research");
+		this.main_panel.addMinistryPanel("007", "Diplomacy");
+		this.main_panel.addMinistryPanel("zzz", "Special");
+		
+		/* testing */
+		StellarLocation alpheratz = this.galaxy.findAnchor("Alpheratz");
+		if(alpheratz!=null) {
+			this.main_panel.addSystemPanel(alpheratz);
+			SystemObject o;
+			for(int i=0; i<alpheratz.numObjects(); i++) {
+				o = alpheratz.findObject(i);
+				if(o instanceof Planet) {
+					this.main_panel.addPlanetPanel((Planet)o);
+				} else if(o instanceof Vessel) {
+					this.main_panel.addVesselPanel((Vessel)o);
+				}
+			}
+		}
+		
 		this.pack();
-		this.setSize(monitor_width/2, monitor_height/2);
 	}
 
 	public void shutdown() {
@@ -107,6 +125,14 @@ public class FrameUI extends JFrame implements UI {
 
 	public void warn(String message) {
 		JOptionPane.showMessageDialog(this, message, "Notification", JOptionPane.WARNING_MESSAGE);
+	}
+
+	public Galaxy galaxy() {
+		return this.galaxy ;
+	}
+
+	public void setGalaxy(Galaxy g) {
+		this.galaxy = g;
 	}
 
 }

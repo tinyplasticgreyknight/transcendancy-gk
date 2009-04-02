@@ -1,9 +1,13 @@
 package org.greyfire.transcendancy.ui;
 
+import org.greyfire.transcendancy.cosmos.Galaxy;
+
 public interface UI {
 	public void initialise();
 	public void activate();
 	public void shutdown();
+	public void setGalaxy(Galaxy g);
+	public Galaxy galaxy();
 	public Boolean yn(String question);
 	public Boolean ynq(String question);
 	public String prompt(String question);

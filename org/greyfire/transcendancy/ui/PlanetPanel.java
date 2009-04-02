@@ -1,5 +1,6 @@
 package org.greyfire.transcendancy.ui;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JLabel;
 import org.greyfire.transcendancy.cosmos.*;
@@ -30,6 +31,7 @@ public class PlanetPanel extends SecondaryPanel {
 	public void onOpen() {
         JLabel filler = new JLabel(this.planet.getName());
         filler.setHorizontalAlignment(JLabel.CENTER);
+		filler.setForeground(Color.WHITE);
         this.setLayout(new GridLayout(1, 1));
         this.add(filler);
 	}
