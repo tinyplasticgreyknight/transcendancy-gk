@@ -48,8 +48,10 @@ public abstract class StellarLocation extends StellarObject implements Comparabl
 	@Override
 	public void own(Species new_owner) {
 		this.disown();
-		this.owner = new_owner;
-		this.owner.registerSystem(this);
+		if(new_owner!=null) {
+			this.owner = new_owner;
+			this.owner.registerSystem(this);
+		}
 	}
 
 	@Override

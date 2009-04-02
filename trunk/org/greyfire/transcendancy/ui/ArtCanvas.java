@@ -7,10 +7,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.MemoryImageSource;
 
-public class ArtCanvas extends Canvas {
+public class ArtCanvas extends Canvas implements ArtSurface {
 
 	private static final long serialVersionUID = 1L;
 	
+	private Color background = Color.BLACK;
 	private Graphics g;
 	private MemoryImageSource mem;
 	private Image screen;
@@ -50,7 +51,7 @@ public class ArtCanvas extends Canvas {
 		if(graphics==null) graphics = g;
 		if(graphics==null) return;
 		this.mem.newPixels();
-		graphics.setColor(Color.BLACK);
+		graphics.setColor(background);
 		graphics.fillRect(0, 0, width, height);
 		graphics.drawImage(screen, 0, 0, null);
 	}
@@ -60,12 +61,12 @@ public class ArtCanvas extends Canvas {
 		if(graphics==null) graphics = g;
 		if(graphics==null) return;
 		this.mem.newPixels(x, y, w, h);
-		graphics.setColor(Color.BLACK);
+		graphics.setColor(background);
 		graphics.fillRect(x, y, w, h);
 		this.g.drawImage(screen, 0, 0, null);
 	}
 	
-	public int translated_colour(Color clr) {
+	public static int translated_colour(Color clr) {
 		int r = clr.getRed();
 		int g = clr.getGreen();
 		int b = clr.getBlue();
@@ -88,6 +89,55 @@ public class ArtCanvas extends Canvas {
 	public void pset(int x, int y, Color clr) {
 		int point = y*width + x;
 		pixels[point] = translated_colour(clr);
+	}
+
+	public void line(int x0, int y0, int x1, int y1, int c) {
+		int point;
+		int ax0 = x0;
+		int ax1 = x1;
+		int ay0 = y0;
+		int ay1 = y1;
+		int dx = ax1 - ax0;
+		int dy = ay1 - ay0;
+		boolean steep = (Math.abs(dy) > Math.abs(dx));
+		if(steep) {
+			int tmp = ax0;
+			ax0 = ay0;
+			ay0 = tmp;
+			tmp = ax1;
+			ax1 = ay1;
+			ay1 = tmp;
+		}
+		if(ax0 > ax1) {
+			int tmp = ax1;
+			ax1 = ax0;
+			ax0 = tmp;
+			tmp = ay1;
+			ay1 = ay0;
+			ay0 = tmp;
+		}
+		System.out.println(String.format("pline: <%d, %d>--<%d, %d>", ax0, ay0, ax1, ay1));
+		dx = ax1 - ax0;
+		dy = Math.abs(ay1 - ay0); 
+		int err = dx / 2;
+		int iy = ay0;
+		int ystep = (ay0 < ay1 ? 1 : -1);
+		for(int ix=ax0; ix<=ax1; ix++) {
+			if(steep) {
+				this.pset(iy, ix, c);
+			} else {
+				this.pset(ix, iy, c);
+			}
+			err -= dy;
+			if(err<0) {
+				iy += ystep;
+				err += dx;
+			}
+		}
+	}
+
+	public void line(int x0, int y0, int x1, int y1, Color clr) {
+		this.line(x0, y0, x1, y1, translated_colour(clr));
 	}
 	
 	/*

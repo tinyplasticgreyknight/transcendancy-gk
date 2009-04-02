@@ -38,4 +38,8 @@ public class SystemPanel extends SecondaryPanel {
         this.add(filler);
 	}
 
+	@Override
+	public void redraw() {
+		// TODO Auto-generated method stub
+	}
 }

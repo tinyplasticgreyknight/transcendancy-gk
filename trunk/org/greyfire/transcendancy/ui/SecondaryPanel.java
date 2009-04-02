@@ -21,4 +21,5 @@ public abstract class SecondaryPanel extends JPanel {
 	public abstract void onOpen();
 	public abstract void onClose();
 	
+	public abstract void redraw();
 }

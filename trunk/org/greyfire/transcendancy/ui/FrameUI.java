@@ -6,6 +6,7 @@ import java.awt.HeadlessException;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import org.greyfire.transcendancy.Constants;
 import org.greyfire.transcendancy.cosmos.Galaxy;
 import org.greyfire.transcendancy.cosmos.Planet;
 import org.greyfire.transcendancy.cosmos.StellarLocation;
@@ -23,6 +24,7 @@ public class FrameUI extends JFrame implements UI {
 	private PrimaryTabPanel main_panel;
 
 	private Galaxy galaxy = new Galaxy();
+	private SecondaryPanel galaxy_panel = null;
 	
 	public FrameUI() throws HeadlessException {
 		// TODO Auto-generated constructor stub
@@ -35,7 +37,12 @@ public class FrameUI extends JFrame implements UI {
 	}
 
 	public void activate() {
-		this.setSize(monitor_width/2, monitor_height/2);
+		int min_width  = Constants.GALAXY_VIEW_WIDTH;
+		int min_height = Constants.GALAXY_VIEW_HEIGHT;
+		int width  = Math.max(monitor_width/2,  min_width);
+		int height = Math.max(monitor_height/2, min_height);
+		this.setMinimumSize(new Dimension(min_width, min_height));
+		this.setSize(width, height);
 		this.setVisible(true);
 		this.running = true;
 		this.createBufferStrategy(2);
@@ -47,6 +54,7 @@ public class FrameUI extends JFrame implements UI {
 		this.add(this.main_panel);
 		
 		this.main_panel.addGalaxyPanel(this.galaxy, "Galaxy");
+		this.galaxy_panel = this.main_panel.getGalaxyPanel();
 		this.main_panel.addMinistryPanel("bar", "Planets");
 		this.main_panel.addMinistryPanel("baz", "Fleet");
 		this.main_panel.addMinistryPanel("qux", "Research");
@@ -127,12 +135,10 @@ public class FrameUI extends JFrame implements UI {
 		JOptionPane.showMessageDialog(this, message, "Notification", JOptionPane.WARNING_MESSAGE);
 	}
 
-	public Galaxy galaxy() {
-		return this.galaxy ;
+	public Galaxy galaxy() { return this.galaxy; }
+	
+	public void redrawGalaxy() {
+		if(this.galaxy_panel==null) throw new IllegalStateException("no galaxy panel exists");
+		this.galaxy_panel.redraw();
 	}
-
-	public void setGalaxy(Galaxy g) {
-		this.galaxy = g;
-	}
-
 }
