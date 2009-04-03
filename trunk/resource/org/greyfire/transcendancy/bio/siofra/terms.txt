@@ -1,0 +1,5 @@
+singular: Siofra
+plural: Siofra
+collective: Siofra
+qualifier: Siofra
+homeworld: Aigean

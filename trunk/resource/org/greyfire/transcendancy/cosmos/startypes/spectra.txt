@@ -1,0 +1,3 @@
+dwarf:  red, orange, yellow, white, blue
+medium: red, orange, yellow, white, blue
+giant:  red, orange, yellow, white, blue

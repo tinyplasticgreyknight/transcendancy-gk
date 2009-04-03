@@ -1,15 +1,19 @@
 <project name="Transcendancy" default="package" basedir=".">
     <description>Build for Transcendancy</description>
 
-  <property name="src" location="."/>
-  <property name="build" location="build"/>
-  <property name="dist"  location="dist"/>
-  <property name="project-major-version" value="0"/>
-  <property name="project-minor-version" value="0"/>
-  <property name="project-build-increment" value="1"/>
-  <property name="project-version" value="${project-major-version}.${project-minor-version}.${project-build-increment}"/>
-  <property name="project-name" value="Transcendancy"/>
-  <property name="main-class" value="org.greyfire.transcendancy.Transcendancy"/>
+	<property name="project-major-version" value="0"/>
+	<property name="project-minor-version" value="0"/>
+	<property name="project-build-increment" value="1"/>
+	<property name="project-version" value="${project-major-version}.${project-minor-version}.${project-build-increment}"/>
+	<property name="project-name" value="Transcendancy"/>
+	<property name="top-package-dir" value="org/greyfire/transcendancy"/>
+	<property name="main-class" value="org.greyfire.transcendancy.Transcendancy"/>
+	<property name="src" value="src"/>
+	<property name="build" value="build"/>
+	<property name="dist"  value="dist"/>
+	<property name="resource" value="resource/${top-package-dir}"/>
+	<property name="build-resource" value="${build}/${top-package-dir}"/>
+	<property name="package-excludes" value=""/>
 
   <target name="init">
     <tstamp>
@@ -20,12 +24,15 @@
 
   <target name="compile" depends="init" description="compile the source " >
     <javac srcdir="${src}" destdir="${build}"/>
+    <copy todir="${build-resource}">
+      <fileset dir="${resource}"/>
+    </copy>
   </target>
 
   <target name="package" depends="compile" description="generate a local build package" >
     <mkdir dir="${dist}"/>
 
-    <jar jarfile="${dist}/${project-name}-${project-major-version}.${project-minor-version}.${BUILDTIME}.jar" basedir="${build}">
+    <jar jarfile="${dist}/${project-name}-${project-major-version}.${project-minor-version}.${BUILDTIME}.jar" basedir="${build}" excludes="${package-excludes}">
       <manifest>
         <attribute name="Main-Class" value="${main-class}"/>
       </manifest>
@@ -35,7 +42,7 @@
   <target name="dist" depends="compile" description="generate the distribution" >
     <mkdir dir="${dist}"/>
 
-    <jar jarfile="${dist}/${project-name}-${project-version}.jar" basedir="${build}">
+    <jar jarfile="${dist}/${project-name}-${project-version}.jar" basedir="${build}" excludes="${package-excludes}">
       <manifest>
         <attribute name="Main-Class" value="${main-class}"/>
       </manifest>

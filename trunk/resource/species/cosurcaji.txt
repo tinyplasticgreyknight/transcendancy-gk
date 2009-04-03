@@ -1,4 +1,0 @@
-name: Cosurcanj
-plural: Cosurcaji
-possessive: Cosurcaji
-homeworld: Adeni

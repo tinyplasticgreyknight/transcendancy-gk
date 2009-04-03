@@ -1,0 +1,5 @@
+singular: Servitor
+plural: Servitors
+collective: Servitors
+qualifier: Servitor
+homeworld: World 0001

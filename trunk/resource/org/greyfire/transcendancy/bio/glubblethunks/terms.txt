@@ -1,0 +1,5 @@
+singular: Glubblethunk
+plural: Glubblethunks
+collective: Glubblethunks
+qualifier: Glubblethunk
+homeworld: Glubblesphere

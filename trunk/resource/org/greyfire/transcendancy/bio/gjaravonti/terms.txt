@@ -1,0 +1,5 @@
+singular: Gjara'vont
+plural: Gjara'vonti
+collective: Gjara'vonti
+qualifier: Gjara'vontda
+homeworld: Gjara'vol
