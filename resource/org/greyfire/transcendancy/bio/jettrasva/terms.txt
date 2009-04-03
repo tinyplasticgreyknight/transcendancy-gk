@@ -1,0 +1,5 @@
+singular: Jettrasva
+plural: Jettrasva
+collective: Jettrasva
+qualifier: Jettrasva
+homeworld: Orohotu

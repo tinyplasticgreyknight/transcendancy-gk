@@ -1,0 +1,5 @@
+singular: Explorer Nonalin
+plural: Explorer Nonalin
+collective: Explorer Nonalin
+qualifier: Explorer Nonalin
+homeworld: Propensity

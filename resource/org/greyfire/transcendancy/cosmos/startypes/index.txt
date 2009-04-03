@@ -1,0 +1,10 @@
+# these come in any of the colours defined under spectra.txt
+__dwarf
+__medium
+__giant
+
+# these are special cases, one of a kind
+binary_white_dwarf
+brown_dwarf
+pulsar
+black_hole

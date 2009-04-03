@@ -1,0 +1,5 @@
+singular: T.hu'mon
+plural: T.hur'mon
+collective: T.hur'mon
+qualifier: T.hu'moi
+homeworld: T.hu'vol

@@ -1,0 +1,5 @@
+singular: Magwraith
+plural: Magwraiths
+collective: Magwraiths
+qualifier: Magwraith
+homeworld: Ienimik

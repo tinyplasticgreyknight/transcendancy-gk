@@ -1,0 +1,5 @@
+singular: Guardian Nonalin
+plural: Guardian Nonalin
+collective: Guardian Nonalin
+qualifier: Guardian Nonalin
+homeworld: Adversity

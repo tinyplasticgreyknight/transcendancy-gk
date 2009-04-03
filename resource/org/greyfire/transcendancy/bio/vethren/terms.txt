@@ -1,0 +1,5 @@
+singular: Vethr
+plural: Vethren
+collective: Vethren
+qualifier: Vethren
+homeworld: Gehenna

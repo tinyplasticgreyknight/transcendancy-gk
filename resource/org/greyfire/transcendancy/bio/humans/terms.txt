@@ -1,0 +1,5 @@
+singular: Human
+plural: Humans
+collective: Humans
+qualifier: Human
+homeworld: Earth

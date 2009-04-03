@@ -1,0 +1,5 @@
+singular: Kuabris
+plural: Kuabris
+collective: Kuabris
+qualifier: Kuabris
+homeworld: Tochu

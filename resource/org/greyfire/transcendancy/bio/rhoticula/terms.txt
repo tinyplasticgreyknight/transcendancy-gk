@@ -1,0 +1,5 @@
+singular: Rhoticulum
+plural: Rhoticula
+collective: Rhoticula
+qualifier: Rhoticulan
+homeworld: Julia

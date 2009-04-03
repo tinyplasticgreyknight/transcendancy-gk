@@ -1,0 +1,5 @@
+singular: Cosurcanj
+plural: Cosurcaji
+collective: Cosurcaji
+qualifier: Cosurcajin
+homeworld: OperatingSystem

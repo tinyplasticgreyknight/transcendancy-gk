@@ -1,0 +1,5 @@
+singular: Dove Guildsman
+plural: Dove Guildsmen
+collective: Dove Guild
+qualifier: Dove Guild
+homeworld: Eternity Colony
