@@ -1,0 +1,153 @@
+r000: Construction			1	---
+r001: Mass Construction			1	r000
+r002: Environmental Shielding		1	r000
+r003: Automated Assembly		1	r001
+r004: Environment Domes			1	r002
+r005: Large-Scale Construction		1	r003
+r006: Self-Replicating Machinery	2	r003,r206
+r007: Colonisation Methods		1	r004
+r008: Submarine Construction		2	r003,r004
+r009: Compact Architecture		1	r005
+r010: Orbital Structures		2	r005,r004,r003
+r011: Nanoconstruction			4	r006,r407
+r012: Worker Efficiency			1	r007,r103
+r013: Spacefaring Vessels		2	r010
+r014: Surface-to-Orbit Construction	3	r011,r010
+r015: Subterranean Construction		2	r012,r009
+r016: Military Spacecraft		3	r013,r012,r009
+r017: Intelligent Drone Vessels		1	r016,r504
+#r018: Supermassive Construction	3	r016,r013,r011
+#r019: Planetary Engineering		5	r018,r602
+#r020: Surstellar Construction		5	r019,r1003
+
+r100: Psychology			1	---
+r101: Methods of Thought		1	r100
+r102: Information Networks		1	r101
+r103: Social Psychology			2	r101
+r104: Espionage Techniques		2	r102
+r105: Neural Networks			3	r102,r101
+r112: Large-Scale Sociology		3	r103,r009
+r106: Advanced Fun Techniques		2	r103
+r107: Image Recognition			4	r105
+r108: Observer Effect			2	r105,r404
+r109: Mind/Machine Interface		4	r105,r209,r011
+r110: Digital Sentience			5	r107,r711,r309,r208
+r111: Self-Enhancing Intelligence	5	r110,r213
+
+r200: Biochemistry			2	---
+r201: Plant Breeding			1	r200
+r202: Hydroponics			1	r201
+r203: Ecosphere Phase Control		2	r202,r105
+r204: Gengineering Methods		2	r203
+r205: Large Scale Farming		1	r203,r007
+r206: The Genome Project		3	r204
+r207: Cloning Techniques		2	r205,r204
+r208: Encyclopedia of Subvital Grammar	5	r206
+r209: Subcognitive Architecture		4	r206,r105,r101
+r210: Xenobiology			3	r206,r104
+r211: Retroviral Engineering		3	r206,r011
+r212: Xenogenetics			4	r210,r206
+r213: Genetic Optimisation		5	r211,r208,r908
+
+r300: Theology				1	---
+r301: The Tonklin Essays		1	r300
+r302: Prayer Methods			1	r301
+r303: Advanced Praise Techniques	2	r302,r301
+r304: Self-Sacrifice			2	r303,r301
+r305: Evangelism Theory			3	r304,r103
+r306: Large Scale Preaching		4	r305,r103
+r307: Megacathedral Design		3	r306,r013
+r308: Extraplanetary Shrines		3	r307,r011
+r309: Nature of the Soul		5	r308,r108
+r310: Bonded Nature			3	r304
+
+r400: Subatomics			2	---
+r401: Ion Direction			2	r400
+r402: Wave Mechanics			1	r400
+r403: Fission Processes			1	r401
+r404: Uncertainty Principle		1	r402
+r405: Coherent Photonics		2	r402
+r406: Artificial Fusion Techniques	3	r403
+r407: Quantum Modification		3	r405
+r408: Cosmic Ray Focussing		2	r405
+r409: Plasmatics			3	r406
+r410: Artificial Quantum States		4	r407,r806
+r411: Binding-Force Synthesis		4	r410
+r412: Wave Extinction			3	r410
+r413: Quantum Computation		5	r410,r905
+r414: Room Temp. Superconductors	3	r410,r011
+r415: Momentum Reflection		1	r412
+r416: Superconducting Crystals		2	r414
+r417: Cosmic String Knotting		5	r415,r806
+r418: Quark Splintering			4	r415,r414
+r419: The Particle Zoo			4	r418
+r420: Magnetic Monopoles		3	r419
+r421: Matter/Energy Conversion		5	r419,r606
+
+r500: Fortification			2	r005
+r501: Civilian Defense Force		1	r500
+r502: Orbital Defense			1	r500,r010
+r503: Planetside Weaponry		2	r501
+r504: Proxy Combat			2	r502,r105
+r505: Cislunar Weaponry			2	r502,r107
+r506: Strategic Defense Platforms	3	r504,r010
+r507: Patriotism			3	r103
+r508: Advanced Planetary Defense	4	r507,r501,r011
+r509: Advanced Planetary Armaments	4	r507,r503,r107
+
+r600: Gravimetrics			2	r402
+r601: Gravimetric Mapping Techniques	1	r600
+r602: Gravitational Amplification	2	r600
+r603: Starlane Navigation		1	r601
+r604: Graviton Synthesis		2	r602
+r605: Spacetime Compression		3	r604,r603
+r606: Quantum Singularities		2	r605
+r607: Matter Redirection		3	r606
+r608: Starlane Anatomy			4	r606,r603
+r609: Action at a Distance		2	r607
+r610: Superresonance			5	r609
+
+r700: Hyperspace			3	r417
+r701: Hyperastronomy			2	r700
+r702: Hyperwave Mechanics		2	r700
+r703: Hypergeometry			1	r701
+r704: Cosmic String Creation		5	r702
+r705: Hyperwave Mutation		3	r702
+r706: Hyperspatial Realignment		3	r705,r703
+r707: Hyperparticle Taxonomy		4	r705,r704
+r708: Wormhole Creation			4	r707,r606
+r709: Spacetime Surfing			4	r708
+r710: Matter Transmission		3	r709,r708
+r711: Transdyne Field Structure		5	r709,r608
+
+r800: Psionics				4	r206
+r801: Long Range Telepathy		2	r800
+r802: Military Telekinesis		2	r801
+r803: Aggressive Telepathy		3	r801,r103
+r804: Eudaimonia			5	r801,r303,r106
+r805: Directed Pyromania		2	r802
+r806: Quantum Telekinesis		4	r802,r404
+r807: Supercoherence			4	r806,r405
+r808: Enforced Isolation		3	r806,r410
+r809: Quantum Mnemonics			?	???
+
+r900: Nanoenergons			3	r419
+r901: Nanoparticle Resonance		2	r900
+r902: Nanowave Mechanics		3	r900
+r903: Nanodeflection			3	r901
+r904: Nanowave Cascades			2	r902
+r905: Grand Unified Wave Theory		5	r902,r702,r604,r402
+r906: Nanopropulsion			3	r904,r903
+r907: Nanoenergon Twisting		3	r904,r706
+r908: Nanoenergon Genetic Code		4	r907,r902,r206
+r909: Nanoenergon Destruction		4	r908,r610
+r910: Theory of Everything		5	r908,r905,r711
+
+r1000: Transcendent Thought		4	r111,r213,r309,r711,r809,r910
+r1001: The Nature of Transcendence	3	r1000
+r1002: Magitechnology			5	r1000
+r1003: Monastic Virtues			3	r1001
+r1004: The Voice of Creation		4	r1003,r1002
+r1005: The Word of God			4	r1004
+r1006: The Meaning of Life		5	r1005,r1004
+r1007: Threshold of Transcendence	*	r1006

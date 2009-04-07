@@ -1,0 +1,99 @@
+# [1] One-shot use
+# [L] Large gizmos
+# [S] Supplies
+# [p] Requires no power to operate
+# [-] Passive scanner; can be used under cloak
+# 
+# {P} Physical
+# {E} Energetic
+# {C} Continuum
+# {Y} Psionic
+
+# GENERATORS:
+g001: Solar Sail[p]{P}			???
+g002: Fission Module{P}			r403
+g003: Lepton Magnetron{E}		r418
+g004: Hyperplane Braid{C}		r702
+g005: Matter Converter{P}		r421
+g006: Lifeforce Synthesiser{Y}		???
+g007: Nanoenergon Pirouette{E}		r901
+g008: Psi Catalyst Chamber{Y}		r806
+g009: Vacuum Grounding Device{C}	r410
+
+# ENGINES:
+g101: Momentum Driver{P}		r400
+g102: Fusion Ram{P}			r406
+g103: Gravity Fountain{C}		r604
+g104: Photon Traction Device{E}		r407
+g105: Nanoenergon Distortion Matrix{E}	r906
+g106: Uncertainty Amplifier{Y}		r808,r404
+g107: Hyperspatial Manifold{C}		r709
+g108: Psychoportation Projector{Y}	???
+
+# SCANNERS:
+g201: Camera Drone Swarm{P}		r
+g202: Ionic Deconstructor[-]{P}		r400
+g203: Lepton Phase Scanner{E}		r402
+g204: Gravimetric Imager{C}		r601
+g205: Hyperwave Membrane[-]{C}		r707
+g206: de Laat's Ceramic Brain{Y}	r105,r414
+g207: Psionic Eavesdropper[-]{Y}	r104,r801
+g208: Nanoenergonic Deconstructor[-]{E}	r902
+
+# SHIELDS:
+g301: Titanium Armour[p]{P}		r000
+g302: Ion Bubble{P}			r401
+g303: Bonded-Carbon Shell{P}		r411
+g304: Percussive Barrier{E}		r415
+g305: Nanoenergon Shell{E}		r903
+g306: Nanoenergon Shutdown Device{E}	r909
+g307: Graviton Block{C}			r607
+g308: Hyperwave Scatterer[p]{C}		r705
+g309: Continuum Surfer{C}		???
+g310: Stadehan Dissipator{Y}		r802
+g311: Extinguisher{Y}			r808
+g312: Astral Cloak{Y}			???
+
+# WEAPONS:
+g401: Barrage Gun{P}			r000
+g402: Plasma Cannon{P}			r409
+g403: Sublight Missile{P}		r420
+g404: Uberlaser{E}			r405
+g405: Oster's Cosmic Lens[p]{E}		r408
+g406: Nanoenergon Transmuter{E}		r904
+g407: Matter Condensor{C}		r605
+g408: Hypersphere Bolas{C}		r703
+g409: Tesseract Shard Gun{C}		???
+g410: Myrmidonic Devastator{Y}		r806
+g411: Phantom Projector{Y}		r103,r803
+g412: Hellwhip{Y}			r405,r807
+
+# SPECIALS:
+g501: Starlane Drive			r603
+g502: Starlane Hyperdrive		r608
+g503: Scan Blocker			r416
+g504: Cloaking Device			r412
+g505: Hyperswapper			r703
+g506: Starlane Lapidary[1]		???
+g507: Lanestorm Agitator[1]		???
+
+g508: Colonisation Module[1]		r007
+g509: Invasion Module[1]		r501
+g510: Orbital Nanofacturing Unit[1]	r010,r011
+g511: Shatterfield Projector[1]		r610,r904
+g512: EMP Cylinder[1]			r414
+g513: Transdyne Warp[1]			r711,r808
+
+g514: Emergency Fuel Tank[S]		???
+g515: Emergency Ammo Supply[S]		???
+g516: Emergency Combat Drones[S]	r017,r504
+
+# LARGE:
+g601: Cargo Bay[L]			r009
+g602: Passenger Toroid[L]		r004
+g603: Docking Cradle[L]			r013
+g604: Combat Drone Launch Tubes[L]	r017,r504
+g605: Shatterfield Bomb[L][1]		r610,r901
+g606: Invulerablizer[L][1]		r1002
+g607: Swallowtail Drive[L][1]		r704
+g608: Transdyne Impeller[L][1]		r711,r901
