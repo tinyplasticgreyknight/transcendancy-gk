@@ -1,0 +1,92 @@
+# [i] Industry
+# [p] Prosperity
+# [r] Research
+# [s] Spirituality
+# [#] Habitation
+# [o] Orbital
+# [B:x] Booster structure for x
+# [Z] Project
+# [Z:x(y)] Translation project enhancing x using y
+# [a] Active
+# [W] Weapon
+# [S] Shield
+# [C] Scanner
+# [n] Can be built even on black squares
+# 
+# {P} Physical
+# {E} Energetic
+# {C} Continuum
+# {Y} Psionic
+
+# Prerequisite numbers in here are non-normative for now...
+
+# GENERAL:
+s001: Capital[i][p][r][s][#]			---
+s002: Factory[i]				r300
+s003: Farm[p]					r000
+s004: Laboratory[r]				r200
+s005: Chapel[s]					r300
+s006: Transit Network[n]			---
+s007: Prefabricated Habitation[#][n]		r000
+s008: Manufactory Centre[i]			r005
+s009: Gengineered Forest[p]			r204
+s010: University[r]				r112
+s011: Cathedral[s]				r303
+s012: Arcology[i][p][r][s][#]			r009,r103
+s013: Cislunar Tower[i][p][r][s][#]		r014,r112
+s014: Gengineering Research Farm[p][r]		r205
+s015: Robotics Research Lab[i][r]		r006,r105
+s016: Forest Temple[p][s]			r310
+s017: Temple of Thunder[i][s]			r310,r409
+s018: Hyperpower Station[B:i]			r012,r706
+s019: Gene Loom[B:p]				r206
+s020: Datasphere Node[B:r]			r109
+s021: Golden Temple[B:s]			r305
+s022: Doppelganger Lens[B:p']			r207,r706
+
+# ACTIVE:
+s101: Civil Defence Installation[a]		r501
+s102: Strategic Defence Command[a]		r505
+s103: Telescope Array[a][C]			r402
+s104: Planetarium[a][C]				r101
+s105: Surface-to-orbit Missile Base[a][W]{P}	r503,r416
+s106: Tactical Laser[a][W]{E}			r503,r405
+s107: Eversion Device[a][W]{C}			r503,r705
+s108: Firewhip[a][W]{Y}				r503,r807
+
+# ORBITAL:
+s201: Orbital Shipyard[o][i]			r013
+s202: Ship[o][a]				r013
+s203: Orbital Habitat[o][#]			r010,r103
+s204: Orbital Nanofactory[o][i]			r010,r011
+s205: Orbital Garden[o][p]			r010,r203
+s206: Starsearch Installation[o][r]		r010,r107
+s207: Floating Basilica[o][s]			r010,r308
+s208: Missile Defence Platform[o][a][W]{P}	r506,r416
+s209: Uberlaser Defence Platform[o][a][W]{E}	r506,r405
+s210: Gravitonic Defence Platform[o][a][W]{C}	r506,r605
+s211: Myrmidonic Defence Platform[o][a][W]{Y}	r506,r806
+s212: Space Telescope[o][a][C]			r405
+
+# SUBTERRANEAN:
+s301: Subsurface Mine[n][i]			r015
+s302: Fungal Nutrient Farm[n][p]		r015,r202
+s303: Geological Research Station[n][r]		r015,r601
+s304: Cavern Shrine[n][s]			r015,r302
+s305: Tactical Defence Centre[n][a]		r015,r508
+s306: Subterranean Habitat[n][#]		r015,r103
+s307: Neutrino Counter[n][a][C]			r015,r408
+
+# PROJECT:
+s401: Scientist Takeover[Z:r(i)]		r108
+s402: Endless Party[Z:p(i)]			r106
+s403: Global Revival[Z:s(i)]			r306
+s404: Conscription[Z]				r507
+s405: Lush Growth Bomb[Z]			r211
+## -----
+## these don't make sense in the current model; projects must currently always be [Z:*(i)]
+# s406: Gengineered Industrial Plants[Z:i(p)]	r208
+# s407: Applied Science Mandate[Z:i(r)]		r112
+# s408: Volunteer Workforce[Z:i(s)]		r304
+## -----
+s499: Ascent To Transcendence[Z]		r1007
