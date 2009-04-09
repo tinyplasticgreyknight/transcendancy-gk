@@ -18,7 +18,7 @@ r016: Military Spacecraft		3	r013,r012,r009
 r017: Intelligent Drone Vessels		1	r016,r504
 #r018: Supermassive Construction	3	r016,r013,r011
 #r019: Planetary Engineering		5	r018,r602
-#r020: Surstellar Construction		5	r019,r1003
+#r020: Surstellar Construction		5	r019,r392
 
 r100: Psychology			1	---
 r101: Methods of Thought		1	r100
@@ -60,6 +60,14 @@ r307: Megacathedral Design		3	r306,r013
 r308: Extraplanetary Shrines		3	r307,r011
 r309: Nature of the Soul		5	r308,r108
 r310: Bonded Nature			3	r304
+r390: Transcendent Thought		4	r309,r111,r213,r711,r809,r910
+r391: The Nature of Transcendence	3	r390
+r392: Magitechnology			5	r390
+r393: Monastic Virtues			3	r391
+r396: The Voice of Creation		4	r393,r392
+r397: The Word of God			4	r396
+r398: The Meaning of Life		5	r397,r396
+r399: Threshold of Transcendence	9	r393,r396,r397,r398
 
 r400: Subatomics			2	---
 r401: Ion Direction			2	r400
@@ -129,7 +137,7 @@ r805: Directed Pyromania		2	r802
 r806: Quantum Telekinesis		4	r802,r404
 r807: Supercoherence			4	r806,r405
 r808: Enforced Isolation		3	r806,r410
-r809: Quantum Mnemonics			?	???
+r809: Quantum Mnemonics			5	r807,r908
 
 r900: Nanoenergons			3	r419
 r901: Nanoparticle Resonance		2	r900
@@ -142,12 +150,3 @@ r907: Nanoenergon Twisting		3	r904,r706
 r908: Nanoenergon Genetic Code		4	r907,r902,r206
 r909: Nanoenergon Destruction		4	r908,r610
 r910: Theory of Everything		5	r908,r905,r711
-
-r1000: Transcendent Thought		4	r111,r213,r309,r711,r809,r910
-r1001: The Nature of Transcendence	3	r1000
-r1002: Magitechnology			5	r1000
-r1003: Monastic Virtues			3	r1001
-r1004: The Voice of Creation		4	r1003,r1002
-r1005: The Word of God			4	r1004
-r1006: The Meaning of Life		5	r1005,r1004
-r1007: Threshold of Transcendence	*	r1006

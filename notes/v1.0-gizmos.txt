@@ -94,6 +94,6 @@ g602: Passenger Toroid[L]		r004
 g603: Docking Cradle[L]			r013
 g604: Combat Drone Launch Tubes[L]	r017,r504
 g605: Shatterfield Bomb[L][1]		r610,r901
-g606: Invulerablizer[L][1]		r1002
+g606: Invulerablizer[L][1]		r392
 g607: Swallowtail Drive[L][1]		r704
 g608: Transdyne Impeller[L][1]		r711,r901
