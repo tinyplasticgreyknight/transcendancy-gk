@@ -89,4 +89,4 @@ s405: Lush Growth Bomb[Z]			r211
 # s407: Applied Science Mandate[Z:i(r)]		r112
 # s408: Volunteer Workforce[Z:i(s)]		r304
 ## -----
-s499: Ascent To Transcendence[Z]		r1007
+s499: Ascent To Transcendence[Z]		r399
