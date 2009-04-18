@@ -1,1 +1,3 @@
 name: Yellow Medium
+maxplanets: 3
+maxlanes: 4

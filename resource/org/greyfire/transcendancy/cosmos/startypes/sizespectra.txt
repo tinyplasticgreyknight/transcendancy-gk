@@ -1,0 +1,3 @@
+__dwarf:  red, orange, yellow, white, blue
+__medium: red, orange, yellow, white, blue
+__giant:  red, orange, yellow, white, blue

@@ -1,9 +1,12 @@
-# these come in any of the colours defined under spectra.txt
+# these come in any of the colours defined under sizespectra.txt
+
 __dwarf
 __medium
 __giant
 
-# these are special cases, one of a kind
+
+# these are special cases, do not come in spectral varieties
+
 binary_white_dwarf
 brown_dwarf
 pulsar

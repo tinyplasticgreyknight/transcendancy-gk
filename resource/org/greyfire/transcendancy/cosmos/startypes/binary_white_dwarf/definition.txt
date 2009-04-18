@@ -1,1 +1,3 @@
 name: Binary White Dwarf
+maxplanets: 3
+maxlanes: 4

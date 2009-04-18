@@ -1,1 +1,3 @@
 name: Pulsar
+maxplanets: 5
+maxlanes: 6

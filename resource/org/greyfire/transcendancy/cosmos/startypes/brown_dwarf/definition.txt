@@ -1,1 +1,3 @@
 name: Brown Dwarf
+maxplanets: 1
+maxlanes: 2

@@ -1,1 +1,3 @@
 name: Blue Dwarf
+maxplanets: 2
+maxlanes: 4

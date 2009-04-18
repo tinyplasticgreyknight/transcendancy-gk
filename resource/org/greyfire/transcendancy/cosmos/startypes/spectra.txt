@@ -1,3 +1,5 @@
-dwarf:  red, orange, yellow, white, blue
-medium: red, orange, yellow, white, blue
-giant:  red, orange, yellow, white, blue
+red:    <255,  64,  64>; <127,  64,   0>; <255, 192, 127>
+orange: <255, 128,   0>; <127,  64,   0>; <255, 192, 127>
+yellow: <255, 255,   0>; <127, 127,   0>; <255, 255, 127>
+white:  <255, 255, 255>; <127, 127, 127>; <255, 255, 255>
+blue:   < 64,  64, 255>; <  0,  64, 127>; <127, 192, 255>

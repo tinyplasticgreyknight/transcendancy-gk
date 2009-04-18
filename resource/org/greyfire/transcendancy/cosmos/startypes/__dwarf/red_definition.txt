@@ -1,1 +1,3 @@
-name: Orange Dwarf
+name: Red Dwarf
+maxplanets: 2
+maxlanes: 4

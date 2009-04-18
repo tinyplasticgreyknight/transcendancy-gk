@@ -1,1 +1,3 @@
 name: Yellow Dwarf
+maxplanets: 2
+maxlanes: 4

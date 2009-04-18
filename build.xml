@@ -1,56 +1,74 @@
-<project name="Transcendancy" default="package" basedir=".">
+<project name="Transcendancy" default="run" basedir="."
+xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:j2seproject2="http://www.netbeans.org/
+ns/j2se-project/2" xmlns:j2seproject1="http://www.netbeans.org/ns/j2se-project/1" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
     <description>Build for Transcendancy</description>
 
-	<property name="project-major-version" value="0"/>
-	<property name="project-minor-version" value="0"/>
-	<property name="project-build-increment" value="1"/>
-	<property name="project-version" value="${project-major-version}.${project-minor-version}.${project-build-increment}"/>
-	<property name="project-name" value="Transcendancy"/>
-	<property name="top-package-dir" value="org/greyfire/transcendancy"/>
-	<property name="main-class" value="org.greyfire.transcendancy.Transcendancy"/>
-	<property name="src" value="src"/>
-	<property name="build" value="build"/>
-	<property name="dist"  value="dist"/>
-	<property name="resource" value="resource/${top-package-dir}"/>
-	<property name="build-resource" value="${build}/${top-package-dir}"/>
-	<property name="package-excludes" value=""/>
+<!--
+  <property name="src" location="."/>
+  <property name="build" location="build"/>
+  <property name="dist"  location="dist"/>
+  <property name="project-major-version" value="0"/>
+  <property name="project-minor-version" value="0"/>
+  <property name="project-build-increment" value="1"/>
+  <property name="project-version" value="${project-major-version}.${project-minor-version}.${project-build-increment}"/>
+  <property name="project-name" value="Transcendancy"/>
+  <property name="main-class" value="org.greyfire.transcendancy.Transcendancy"/>
+-->
+
+  <property file="build.properties"/>
 
   <target name="init">
     <tstamp>
       <format property="BUILDTIME" pattern="yyyyMMddhhmmss" locale="en,UK" />
     </tstamp>
-    <mkdir dir="${build}"/>
+    <mkdir dir="${dir.build}"/>
   </target>
 
   <target name="compile" depends="init" description="compile the source " >
-    <javac srcdir="${src}" destdir="${build}"/>
-    <copy todir="${build-resource}">
-      <fileset dir="${resource}"/>
+    <javac srcdir="${dir.src}" destdir="${dir.build}">
+      <classpath>
+        <path path="${compile.classpath}"/>
+      </classpath>
+    </javac>
+    <copy todir="${dir.resource.built}">
+      <fileset dir="${dir.resource}" excludes="${dir.resource.exclude}"/>
     </copy>
   </target>
 
   <target name="package" depends="compile" description="generate a local build package" >
-    <mkdir dir="${dist}"/>
+    <mkdir dir="${dir.dist}"/>
 
-    <jar jarfile="${dist}/${project-name}-${project-major-version}.${project-minor-version}.${BUILDTIME}.jar" basedir="${build}" excludes="${package-excludes}">
+    <jar jarfile="${dir.dist}/${project.name}-${project.version.major}.${project.version.minor}.${BUILDTIME}.jar" basedir="${dir.build}" excludes="${jar.excludes}">
       <manifest>
-        <attribute name="Main-Class" value="${main-class}"/>
+        <attribute name="Main-Class" value="${jar.main}"/>
       </manifest>
     </jar>
   </target>
 
   <target name="dist" depends="compile" description="generate the distribution" >
-    <mkdir dir="${dist}"/>
+    <mkdir dir="${dir.dist}"/>
 
-    <jar jarfile="${dist}/${project-name}-${project-version}.jar" basedir="${build}" excludes="${package-excludes}">
+    <jar jarfile="${dir.dist}/${project.name}-${project.version}.jar" basedir="${dir.build}">
       <manifest>
-        <attribute name="Main-Class" value="${main-class}"/>
+        <attribute name="Main-Class" value="${jar.main}"/>
       </manifest>
     </jar>
   </target>
 
+  <target name="run" depends="init,compile" description="run the application">
+    <java fork="true" classname="${run.main}" dir="${dir.build}">
+      <jvmarg line="${run.jvmargs}"/>
+      <classpath>
+        <path path="${run.classpath}"/>
+      </classpath>
+    </java>
+  </target>
+
   <target name="clean" description="clean up" >
-    <delete dir="${build}"/>
-    <delete dir="${dist}"/>
+    <delete dir="${dir.build}"/>
+  </target>
+
+  <target name="spotless" depends="clean" description="clean up very much" >
+    <delete dir="${dir.dist}"/>
   </target>
 </project>
