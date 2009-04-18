@@ -1,1 +1,3 @@
 name: Yellow Giant
+maxplanets: 5
+maxlanes: 6

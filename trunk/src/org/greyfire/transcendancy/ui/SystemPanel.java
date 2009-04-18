@@ -9,37 +9,37 @@ import org.greyfire.transcendancy.cosmos.*;
 
 public class SystemPanel extends SecondaryPanel {
 
-	private static final long serialVersionUID = 1L;
-	private StellarLocation star;
+    private static final long serialVersionUID = 1L;
+    private StellarLocation star;
 
-	public SystemPanel(StellarLocation star) {
-		super();
-		this.star = star;
-		this.onOpen();
-	}
+    public SystemPanel(StellarLocation star) {
+        super();
+        this.star = star;
+        this.onOpen();
+    }
 
-	public SystemPanel(StellarLocation star, boolean doublebuffer) {
-		super(doublebuffer);
-		this.star = star;
-		this.onOpen();
-	}
+    public SystemPanel(StellarLocation star, boolean doublebuffer) {
+        super(doublebuffer);
+        this.star = star;
+        this.onOpen();
+    }
 
-	@Override
-	public void onClose() {
-		/* donothing */
-	}
+    @Override
+    public void onClose() {
+        /* donothing */
+    }
 
-	@Override
-	public void onOpen() {
+    @Override
+    public void onOpen() {
         JLabel filler = new JLabel(this.star.getLongTitle());
         filler.setHorizontalAlignment(JLabel.CENTER);
-		filler.setForeground(Color.WHITE);
+        filler.setForeground(Color.WHITE);
         this.setLayout(new GridLayout(1, 1));
         this.add(filler);
-	}
+    }
 
-	@Override
-	public void redraw() {
-		// TODO Auto-generated method stub
-	}
+    @Override
+    public void redraw() {
+        // TODO Auto-generated method stub
+    }
 }
